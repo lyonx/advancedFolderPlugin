@@ -48,6 +48,17 @@
                 }
             };
         }])
+        .factory('PluginType', ['Buildfire', function (Buildfire) {
+                var status=false;
+            if(Buildfire.getFrameType()==="LAUNCHER_PLUGIN")
+                status=true;
+            return {
+                isHomePlugin: function () {
+
+                    return status;
+                }
+            };
+        }])
         .factory('ViewStack', ['$rootScope','LocalStorage', function ($rootScope ,LocalStorage) {
             var views = [];
             var viewMap = {};
